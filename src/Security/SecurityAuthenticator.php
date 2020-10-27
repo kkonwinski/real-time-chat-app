@@ -97,7 +97,7 @@ class SecurityAuthenticator extends AbstractFormLoginAuthenticator implements Pa
         }
 
         // For example :
-         return new RedirectResponse($this->urlGenerator->generate('/'));
+         return new RedirectResponse($this->urlGenerator->generate('app_message_index'));
        // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
