@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-12">
+
+        {{ form_errors(messageForm) }}
+        {{ form_start(messageForm) }}
+        <div id="chat">
+
+        </div>
+        {{ form_row(messageForm.content) }}
+
+
+        <div class="form-group">
+            <button class="btn btn-success" id="sendBtn">{{ button_label|default('Wyślij !!!') }}</button>
+        </div>
+        {{ form_end(messageForm) }}
+    </div>
+</div>
