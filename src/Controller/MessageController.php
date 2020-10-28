@@ -14,8 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class MessageController extends AbstractController
 {
 
-
-
     private $userRepository;
 
     public function __construct(UserRepository $userRepository)

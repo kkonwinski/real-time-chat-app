@@ -7,6 +7,7 @@ socket.addEventListener("open", function () {
 function addMessage(name, message)
 {
     validate=validateForm(message)
+
     if (validate===true) {
         const messageHTML = "<div class='message'><strong>" + name + ":</strong> " + message + "</div>";
         document.getElementById("chat").innerHTML += messageHTML
@@ -27,7 +28,7 @@ socket.addEventListener("message", function (e) {
 document.getElementById("sendBtn").addEventListener("click", function () {
     event.preventDefault()
     const message = {
-        name: document.getElementById("message_author").textContent,
+        name: document.getElementById("message_author").value,
         message: document.getElementById("message_content").value
     };
     socket.send(JSON.stringify(message));
@@ -36,13 +37,12 @@ document.getElementById("sendBtn").addEventListener("click", function () {
 
 function validateForm(message)
 {
-
     if (message == "") {
         alert("Content canot be empty");
         return false;
-    }
-    if (message.length>255) {
+    } else if (message.length>255) {
         alert("Content must have less thn 255 characters");
         return false;
     }
+    return true;
 }

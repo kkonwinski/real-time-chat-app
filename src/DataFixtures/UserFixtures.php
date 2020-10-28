@@ -28,5 +28,15 @@ class UserFixtures extends Fixture
         $user->setRoles(['ROLE_ADMIN']);
         $manager->persist($user);
         $manager->flush();
+
+        $user = new User();
+        $user->setPassword($this->passwordEncoder->encodePassword(
+            $user,
+            '123456'
+        ));
+        $user->setEmail('admintestowy@wp.pl');
+        $user->setRoles(['ROLE_ADMIN']);
+        $manager->persist($user);
+        $manager->flush();
     }
 }
