@@ -6,8 +6,11 @@ socket.addEventListener("open", function () {
 
 function addMessage(name, message)
 {
-    const messageHTML = "<div class='message'><strong>" + name + ":</strong> " + message + "</div>";
-    document.getElementById("chat").innerHTML += messageHTML
+    validate=validateForm(message)
+    if (validate===true) {
+        const messageHTML = "<div class='message'><strong>" + name + ":</strong> " + message + "</div>";
+        document.getElementById("chat").innerHTML += messageHTML
+    }
 }
 
 socket.addEventListener("message", function (e) {
@@ -30,3 +33,16 @@ document.getElementById("sendBtn").addEventListener("click", function () {
     socket.send(JSON.stringify(message));
     addMessage(message.name, message.message);
 });
+
+function validateForm(message)
+{
+
+    if (message == "") {
+        alert("Content canot be empty");
+        return false;
+    }
+    if (message.length>255) {
+        alert("Content must have less thn 255 characters");
+        return false;
+    }
+}

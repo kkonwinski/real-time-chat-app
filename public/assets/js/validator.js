@@ -1,5 +1,5 @@
-// var validator = $( "#message" ).validate();
-// validator.element( "#message_content" );
+var validator = $( "#message" ).validate();
+validator.element( "#message_content" );
 
 $("#message").validate();
 validator.showErrors({
